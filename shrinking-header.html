@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shrinking Header</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        position: relative;
+        scrollbar-color: #4949df #383851;
+      }
+
+      html,
+      body {
+        margin: 0;
+      }
+
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+          sans-serif;
+        font-smooth: antialiase;
+        background: #202030;
+      }
+
+      .content {
+        margin: 0 auto;
+        max-width: 800px;
+        color: #c9c9fe;
+        padding: 100px 0 0;
+      }
+
+      .image-placeholder {
+        height: 40vh;
+        width: 100%;
+        background: #313146;
+        border-radius: 20px;
+      }
+
+      .header {
+        height: 60px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+
+      .header__bg {
+        background: #6767c2;
+        left: 0;
+        top: 0;
+        position: absolute;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+        transform-origin: top left;
+        animation: shrink-header linear forwards;
+        animation-timeline: scroll();
+        animation-range: 0% 100px;
+      }
+
+      @keyframes shrink-header {
+        to {
+          transform: scale(1, 0.6);
+        }
+      }
+
+      .header__inner {
+        max-width: 800px;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        gap: 0 20px;
+      }
+
+      .header__picture {
+        width: 80px;
+        height: 80px;
+        display: flex;
+        overflow: clip;
+        border-radius: 50%;
+        border: 4px solid #6767c2;
+        align-self: flex-start;
+        transform-origin: top left;
+        animation: shrink-image linear forwards;
+        animation-timeline: scroll();
+        animation-range: 0% 100px;
+      }
+
+      @keyframes shrink-image {
+        to {
+          transform: scale(0.4) translate(0, 5px);
+        }
+      }
+
+      .header__name {
+        color: white;
+        font-size: 22px;
+        font-weight: 600;
+
+        transform-origin: top left;
+        animation: shrink-name linear forwards;
+        animation-timeline: scroll();
+        animation-range: 0% 100px;
+      }
+
+      @keyframes shrink-name {
+        to {
+          transform: scale(0.7) translate(-85px, 0px);
+        }
+      }
+
+      .header__title {
+        font-size: 14px;
+        color: #e0e0ff;
+
+        transform-origin: top left;
+        animation: fade-title linear forwards;
+        animation-timeline: scroll();
+        animation-range: 0% 20px;
+      }
+
+      @keyframes fade-title {
+        to {
+          opacity: 0;
+          transform: translate(-18px, 0);
+        }
+      }
+
+      .header__picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      @media (max-width: 800px) {
+        .header__inner {
+          padding: 0 20px;
+        }
+
+        .content {
+          padding: 80px 20px 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__bg"></div>
+      <div class="header__inner">
+        <div class="header__picture">
+          <img src="/user-image.jpg" alt="" />
+        </div>
+        <div class="header__text">
+          <div class="header__name">John Doe</div>
+          <div class="header__title">Web developer</div>
+        </div>
+      </div>
+    </header>
+    <main class="content">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel ipsum
+        debitis ipsa soluta magnam maiores modi quas asperiores quisquam aut,
+        consectetur magni dolore exercitationem nesciunt tenetur veniam nulla
+        reprehenderit ut.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi ad quasi
+        sapiente dolores, reprehenderit vitae commodi maxime nam quis cupiditate
+        nobis sed fuga similique voluptatem odio sunt eum doloremque. Expedita
+        tempora ut consectetur nesciunt odio itaque tempore iure similique quasi
+        cumque cum ex quaerat, beatae dolore. Facere odit in, assumenda incidunt
+        neque molestias esse culpa nostrum! Autem quos voluptatem beatae tempore
+        non eaque sit reprehenderit, hic excepturi nostrum. Expedita odit
+        quibusdam provident ducimus corporis tenetur laborum, iure consectetur
+        aut ipsa! Voluptatibus ad aspernatur inventore enim numquam omnis quo
+        cum suscipit! Voluptatum reiciendis, maxime laudantium provident
+        quibusdam aperiam culpa omnis labore commodi voluptas repellat error
+        ullam ratione nobis distinctio? Cumque, nisi et eveniet dolorem sed id,
+        obcaecati provident nemo velit qui enim quam impedit eius amet ratione
+        labore? Aliquam beatae quo vel at? Natus eos tempore voluptas blanditiis
+        dolores vel magnam eveniet, nulla facere illo, consectetur provident
+        vitae laudantium totam dolore asperiores minima odio neque sunt velit
+        culpa. Reprehenderit molestias a magni tenetur praesentium veritatis
+        corrupti non iusto? Obcaecati totam reprehenderit quas illum,
+        consequuntur vero temporibus laborum suscipit atque necessitatibus!
+        Numquam aut distinctio nulla ut qui dicta delectus corrupti est quaerat
+        debitis unde, excepturi quam? Natus voluptate accusamus neque qui animi.
+      </p>
+      <div class="image-placeholder"></div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit
+        dolorem nobis commodi, veritatis accusamus sit minus nisi facere esse
+        possimus expedita voluptatibus dolorum repellendus ipsam sequi vero
+        placeat? Incidunt accusamus voluptatum molestiae ab pariatur ad, id
+        itaque placeat laboriosam nulla quibusdam laudantium nostrum suscipit
+        similique adipisci aliquam, eum labore sunt exercitationem harum
+        praesentium recusandae vel reiciendis! Voluptatibus harum magni
+        delectus. Voluptatem ex eaque id, fugiat blanditiis architecto a sit
+        accusamus impedit enim, eveniet, quam sapiente? Sint omnis, error
+        tempore corporis impedit totam illo officiis quibusdam a quo accusamus
+        laborum minus numquam natus porro. Deserunt accusamus, dolor doloremque
+        earum molestiae veritatis eligendi laboriosam nisi excepturi.
+      </p>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae, vel sed
+        possimus explicabo iste necessitatibus? Laudantium dolore deserunt
+        beatae dolor quaerat labore, velit neque expedita! Enim tempora quam
+        mollitia hic unde. Explicabo autem hic harum fugit, velit quaerat quasi
+        beatae ad ut quis enim sit ipsa laudantium illum! Consectetur
+        praesentium velit nam perspiciatis ipsam tenetur, fugit distinctio!
+        Dolorem, et tenetur. Pariatur quae autem quisquam, iste consequatur
+        cumque ipsa quidem, maxime totam laboriosam accusamus harum modi ullam
+        qui est et velit. Aut sed explicabo molestias tempore numquam facilis a
+        recusandae doloribus quis laudantium dignissimos, labore, iusto
+        doloremque nisi, aliquid debitis? Animi iure, sit quaerat itaque
+        voluptate obcaecati similique, corporis aut maxime nam esse, sint
+        quidem. Excepturi quos repellat optio suscipit velit minima ullam nemo
+        aperiam minus laborum, iusto, totam voluptate possimus atque blanditiis
+        commodi eos ipsum? Rerum quo quasi laborum nisi adipisci expedita
+        officiis nobis dolorem iure minima, necessitatibus nostrum ipsa
+        repudiandae sint fuga! Sunt accusantium dolore, minima debitis incidunt
+        atque quisquam repellendus autem ipsum amet nulla officia nobis iure
+        nemo magni laboriosam. Fugit, consectetur provident facere culpa aliquid
+        ex illo natus quam. Praesentium numquam aperiam sunt vero autem?
+        Sapiente error quia excepturi numquam rem ipsa repellat quisquam tenetur
+        obcaecati possimus.
+      </p>
+      <div class="image-placeholder"></div>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur
+        repudiandae quo corporis debitis, earum cum hic quia! Accusantium
+        mollitia, a voluptatibus minus molestiae eligendi laborum, ut aperiam
+        error odit quasi.
+      </p>
+    </main>
+  </body>
+</html>
